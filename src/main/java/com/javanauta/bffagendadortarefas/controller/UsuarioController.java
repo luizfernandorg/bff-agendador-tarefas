@@ -9,6 +9,7 @@ import com.javanauta.bffagendadortarefas.business.dto.in.UsuarioDTORequest;
 import com.javanauta.bffagendadortarefas.business.dto.out.EnderecoDTOResponse;
 import com.javanauta.bffagendadortarefas.business.dto.out.TelefoneDTOResponse;
 import com.javanauta.bffagendadortarefas.business.dto.out.UsuarioDTOResponse;
+import com.javanauta.bffagendadortarefas.business.dto.out.ViaCepDTOResponse;
 import com.javanauta.bffagendadortarefas.infrastructure.security.SecurityConfig;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -123,5 +124,13 @@ public class UsuarioController {
     public ResponseEntity<TelefoneDTOResponse> cadastraTelefone(@RequestBody TelefoneDTORequest dto,
                                                                 @RequestHeader(name = "Authorization", required = false) String token){
         return ResponseEntity.ok(usuarioService.cadastraTelefone(token, dto));
+    }
+    @GetMapping("/endereco/{cep}")
+    @Operation(summary = "retrieve data from postal code", description = "Retrieve data from postal code")
+    @ApiResponse(responseCode = "200", description = "Postal Code data founded")
+    @ApiResponse(responseCode = "400", description = "Postal Code Invalid")
+    @ApiResponse(responseCode = "500", description = "Server error")
+    public ResponseEntity<ViaCepDTOResponse> buscarDadosCep(@PathVariable("cep") String cep){
+        return ResponseEntity.ok(usuarioService.buscarEnderecoPorCep(cep));
     }
 }
