@@ -1,5 +1,4 @@
 ### README In production
-### Microservice in production
 
 #### Other microservices for this project:
 ##### https://github.com/luizfernandorg/usuario
