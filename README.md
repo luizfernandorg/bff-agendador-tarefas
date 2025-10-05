@@ -14,6 +14,6 @@ The project is also documented, accessible on [Swagger](http://localhost:8083/sw
 
 ```bash
   git clone https://github.com/luizfernandorg/bff-agendador-tarefas.git
-  cd bff-agendador-tarefas.git
+  cd bff-agendador-tarefas
   mvn exec:java -Dexec.mainClass="com.javanauta.bffagendadortarefas.BffAgendadorTarefasApplication"
 ```
